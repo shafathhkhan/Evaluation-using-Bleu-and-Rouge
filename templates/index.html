@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Evaluator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Quality Assurance Framework for the Evaluation of Text Generation Models</h2>
+
+        <form id="aiForm">
+            <label for="task">Choose Task:</label>
+            <select id="task">
+                <option value="summarization">Summarization</option>
+                <option value="translation">Translation</option>
+                <option value="qa">Question Answering</option>
+            </select>
+
+            <label for="inputText">Enter Input Text:</label>
+            <textarea id="inputText" rows="4" required></textarea>
+
+            <div id="translationFields" style="display: none;">
+                <label for="sourceLang">Source Language:</label>
+                <input type="text" id="sourceLang" placeholder="e.g., English">
+                <label for="targetLang">Target Language:</label>
+                <input type="text" id="targetLang" placeholder="e.g., French">
+            </div>
+
+            <button type="button" id="generateReference">Generate Reference Output (Gemini)</button>
+
+            <h3>Reference Output (Gemini):</h3>
+            <p id="referenceText"></p>
+
+            <label for="userOutput">Enter Another Model's Output:</label>
+            <textarea id="userOutput" rows="4" required></textarea>
+
+            <button type="submit">Evaluate Output</button>
+        </form>
+
+        <h3>Evaluation Score ROUGE-F1 and BLEUScore:</h3>
+         <div style="display: grid; justify-content: center; place-items: center;">    
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <label>Rouge Score:</label><textarea id="rougeScore"></textarea><br>
+                <label>BLEU Score:</label><textarea id="bleu1Score"></textarea><br>
+            </div>
+         </div>   
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
