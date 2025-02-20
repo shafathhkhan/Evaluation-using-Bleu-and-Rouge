@@ -5,7 +5,7 @@ from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 import nltk
 
 nltk.download('punkt')  # Ensure necessary NLTK data is available
-
+nltk.download('punkt_tab')
 app = Flask(__name__)
 
 # Configure Google Gemini AI
